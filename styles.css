@@ -1,0 +1,97 @@
+/* Used to get smooth scrolling effect */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Some global stuff that I am setting from the start */
+
+body {
+  background-color: #000000;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+p {
+  color:antiquewhite;
+  text-indent: 15px;
+}
+
+h1 {
+  color:antiquewhite;
+}
+
+h2 {
+  color:antiquewhite;
+}
+
+/*Used for the main image */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 37%;
+  animation: fadeIn ease 10s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.container{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+  display: grid;
+  place-items: center;
+  width: 408px;
+}
+
+.container a {
+  color: antiquewhite;
+  animation: fadeIn ease 10s;
+}
+
+.typed {
+  color:#b7b7b7;
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  width: 0;
+  animation: type 1.5s steps(30, end) forwards, blink 1s infinite;
+}
+
+.about {
+
+}
+  
+@keyframes type {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0% {border-color: transparent}
+  50% {border-color: rgb(255, 0, 0)}
+  100% {border-color: transparent}
+}
+
+section {
+  min-height: 500px;
+  margin-bottom: 300px;
+}
+
+a {
+  transition: color 0.5s, font-size 0.5s;
+  text-decoration: none;
+}
+
+a:hover {
+  font-size: 20px;
+  color:rgb(255, 221, 221);
+}
+
+
+

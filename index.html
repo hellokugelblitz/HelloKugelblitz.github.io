@@ -1,1 +1,102 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<!-- Jack Lindsey-Noble, ISTE-240, 2205 -->
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Jack Lindsey-Noble</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<section id="home">
+			<div class="landing-page">
+				<div class="container">
+					<h1 class="typed">Jack Lindsey-Noble</h1>
+				</div>
+				<img src="me.png" alt="Girl in a jacket" width="500" height="600">
+				<div class="container">
+					<a href="#about-me">Projects & About me</a>
+				</div>
+			</div>
+		</section>
+	
+		<section id="about-me">
+				<div class="about">
+
+					<h1>I'm a</h1>
+					<h1 id="result"></h1>
+					<h1>year old developer.</h1>
+					
+
+					<script>
+						function updateResult() {
+							// Define the specific date
+							const specificDate = new Date("2003-03-07");
+
+							// Calculate the difference between the specific date and the current date in milliseconds
+							const timeDiff = Date.now() - specificDate.getTime();
+
+							// Convert the time difference from milliseconds to years with 8 decimal places
+							const years = parseFloat((timeDiff / (1000 * 60 * 60 * 24 * 365)).toFixed(9));
+
+							// Display the result in the HTML element with ID "result"
+							document.getElementById("result").innerHTML = years;
+						}
+
+						// Update the result every second
+						setInterval(updateResult, 1);
+					</script>
+
+					<!-- <div class="title">
+						<h1>Welcome!</h1>
+						<hr>
+					</div> -->
+
+					<!-- <div class="text">
+					<p>Hello! My name is Jack Lindsey-Noble, so happy you've found your way to my portfolio website
+						I am currently majoring in Computing, Humanities, and Design at Rochester Institute of 
+						Technology but I am originally from the great state of Connecticut. As I look forward to 
+						beginning my career, I am mostly interested in project management, front end development, 
+						and working on multimedia projects. I am very passionate as well about my hobbies! In my 
+						free time I love to write screenplays, poetry, and short stories, and work on little games
+						in python or C# (Unity).</p>
+
+						<h3 style="color:rgb(167, 1, 1); margin-bottom: 15px;">My Projects:</h3>
+
+					</div> -->
+<!-- 
+					<div class="image">
+						<img src="me2.jpg" alt="Me in pitsburgh">
+					</div>
+					
+					<div class="badges">
+						<a href="https://github.com/hellokugelblitz"><img src="g_badge.png" alt="Github link" ></a>
+						<a href="https://www.linkedin.com/in/jack-lindsey-noble-55a032254/"><img src="l_badge.png" alt="Linkedn link"></a>
+						<p>[jgl2651@rit.edu or jacknoble0303@gmail.com]</p>
+					</div>
+					
+					<div class="projects">
+						<ul>
+							<li><a href="#">Exercise 1</a></li>
+							<li><a href="#">Exercise 2</a></li>
+							<li><a href="#">Exercise 3</a></li>
+							<li><a href="#">Exercise 4</a></li>
+							<li><a href="#">Exercise 5</a></li>
+							<li><a href="#">Exercise 6</a></li>
+							<li><a href="#">Exercise 7</a></li>
+							<li><a href="#">Individual Project 1</a></li>
+							<li><a href="#">Individual Project 2</a></li>
+							<li><a href="#">Group Project</a></li>
+						</ul>
+					</div>
+					
+					<div class="title">
+						<hr>
+					</div> -->
+				</div>
+		</section>
+		
+	</body>
+</html>
