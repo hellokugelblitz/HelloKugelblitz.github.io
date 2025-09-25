@@ -58,7 +58,7 @@
 
 		.header-content {
 			display: flex;
-			align-items: center;
+			/* align-items: center; */
 			justify-content: space-between;
 			position: relative;
 			z-index: 2;
@@ -114,6 +114,9 @@
 			border-radius: 16px;
 			box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 			border: 1px solid #e2e8f0;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 		}
 
 		.profile-image {
@@ -257,8 +260,41 @@
 			gap: 6px;
 		}
 
+		strong {
+			font-weight: 480;
+			font-size: inherit;
+		}
+
+		.bullet-list {
+			margin: 10px 0;
+			margin-top: 0px;
+			padding-left: 20px;
+		}
+
+		.bullet-list li {
+			margin-bottom: 8px;
+			line-height: 1.5;
+			position: relative;
+		}
+
+		.bullet-list li::marker {
+			color: #2c5aa0;
+			font-weight: bold;
+		}
+
+		.time-info {
+			font-weight: 600;
+			color: #64748b;
+			font-style: italic;
+			margin-bottom: 12px;
+			font-size: 0.9rem;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+
 		.date::before {
-			content: '📅';
 			font-style: normal;
 		}
 
@@ -363,6 +399,8 @@
 			
 			.header-content {
 				flex-direction: column;
+				align-content: center;
+				width: 100%;
 				text-align: center;
 				gap: 20px;
 			}
@@ -452,25 +490,28 @@
             <div class="header-content">
                 <div class="profile-info">
                     <h1>Jack Lindsey-Noble</h1>
-                    <h2>Software Engineering Student | Project Management</h2>
+                    <h2><strong>Project Manager ~ Software Engineer</strong></h2>
                     <p>Fourth-year student at Rochester Institute of Technology seeking CO-OP or full-time positions in Software Engineering or Project Management.</p>
                 </div>
-                <div class="contact-info">
+				<div style="display: flex; flex-direction: column; align-items: bottom; justify-content: end;">
 					
-						<div class="contact-item">
-							<i class="fas fa-envelope"></i>
-							<span>jacknoble0303@gmail.com</span>
-						</div>
-						<div class="contact-item">
-							<i class="fas fa-phone"></i>
-							<span>(203)-349-0236</span>
-						</div>
-						<div class="contact-item">
-							<i class="fab fa-github"></i>
-							<span>github.com/hellokugelblitz</span>
-						</div>
-					
-                </div>
+					<div class="contact-info">
+						
+							<div class="contact-item">
+								<i class="fas fa-envelope"></i>
+								<span>jacknoble0303@gmail.com</span>
+							</div>
+							<div class="contact-item">
+								<i class="fas fa-phone"></i>
+								<span>(203)-349-0236</span>
+							</div>
+							<div class="contact-item">
+								<i class="fab fa-github"></i>
+								<span>github.com/hellokugelblitz</span>
+							</div>
+						
+					</div>
+				</div>
             </div>
         </header>
 
@@ -479,88 +520,131 @@
 			<img src="https://media.licdn.com/dms/image/v2/D4E03AQEix1sprSS5BA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689946374059?e=1761177600&v=beta&t=mjlGvwH-fz9M5SAcLUXCJ2bN-tJa320EsAEN4TQaW60" alt="Jack Lindsey-Noble" class="profile-image">	
 
 			<aside class="sidebar">
-				
+				<div>
+					<h3 class="section-title">Education</h3>
+					<div class="education-item">
+						<h4>Rochester Institute of Technology</h4>
+						<p>Bachelor of Science in Humanities, Computing, and Design</p>
+						<p>Minor in Software Engineering</p>
+						<p>Expected Spring 2025</p>
+						<p>Dean's List recipient</p>
+					</div>
+				</div>
 
-			
-				
-				<h3 class="section-title">Education</h3>
-				<div class="education-item">
-					<h4>Rochester Institute of Technology</h4>
-					<p>Bachelor of Science in Humanities, Computing, and Design</p>
-					<p>Minor in Software Engineering</p>
-					<p>Expected Spring 2025</p>
-					<p>Dean's List recipient</p>
+				<div>
+					<h3 class="section-title">Awards</h3>
+					<ul class="languages-list">
+						<li>
+							<span>Certified Associate Project Manager (CAPM)</span>
+						</li>
+						<li>
+							<span>Eagle Scout</span>
+						</li>
+						<li>
+							<span>Oracle Certified Associate (Java 8)</span>
+						</li>
+					</ul>
 				</div>
 				
-				<h3 class="section-title">Skills</h3>
-				<ul class="skills-list">
-					<li>
-						<i class="fab fa-java skill-icon"></i>
-						<span>Java / JavaScript / TypeScript</span>
-					</li>
-					<li>
-						<i class="fab fa-python skill-icon"></i>
-						<span>Python / C#</span>
-					</li>
-					<li>
-						<i class="fab fa-react skill-icon"></i>
-						<span>React / Angular / Svelte</span>
-					</li>
-					<li>
-						<i class="fas fa-code skill-icon"></i>
-						<span>Node.js / Next.js</span>
-					</li>
-					<li>
-						<i class="fas fa-database skill-icon"></i>
-						<span>AWS / Firebase / MongoDB</span>
-					</li>
-					<li>
-						<i class="fas fa-tasks skill-icon"></i>
-						<span>Agile / Scrum / Waterfall</span>
-					</li>
-				</ul>
+				<div>
+					<h3 class="section-title">Skills</h3>
+					<ul class="skills-list">
+						<li>
+							<i class="fab fa-java skill-icon"></i>
+							<span>Java / JavaScript / TypeScript</span>
+						</li>
+						<li>
+							<i class="fab fa-python skill-icon"></i>
+							<span>Python / C#</span>
+						</li>
+						<li>
+							<i class="fab fa-react skill-icon"></i>
+							<span>React / Angular / Svelte</span>
+						</li>
+						<li>
+							<i class="fas fa-code skill-icon"></i>
+							<span>Node.js / Next.js</span>
+						</li>
+						<li>
+							<i class="fas fa-database skill-icon"></i>
+							<span>AWS / Firebase / MongoDB</span>
+						</li>
+						<li>
+							<i class="fas fa-tasks skill-icon"></i>
+							<span>Agile / Scrum / Waterfall</span>
+						</li>
+						<!-- New Project Management Skills -->
+						<li>
+							<i class="fas fa-project-diagram skill-icon"></i>
+							<span>Project Planning & Scheduling</span>
+						</li>
+						<li>
+							<i class="fas fa-chart-line skill-icon"></i>
+							<span>Stakeholder Communication & Reporting</span>
+						</li>
+						<li>
+							<i class="fas fa-users skill-icon"></i>
+							<span>Cross-functional Team Leadership</span>
+						</li>
+						<li>
+							<i class="fas fa-tools skill-icon"></i>
+							<span>Jira / Azure DevOps / Microsoft Project</span>
+						</li>
+						<li>
+							<i class="fas fa-file-alt skill-icon"></i>
+							<span>Documentation & Artifact Creation</span>
+						</li>
+						<li>
+							<i class="fas fa-sync-alt skill-icon"></i>
+							<span>Change Management & Process Improvement</span>
+						</li>
+						<li>
+							<i class="fas fa-money-bill-wave skill-icon"></i>
+							<span>Portfolio Management (PPSM)</span>
+						</li>
+						<li>
+							<i class="fas fa-handshake skill-icon"></i>
+							<span>Stakeholder Management</span>
+						</li>
+					</ul>
+				</div>
 				
-				<h3 class="section-title">Awards</h3>
-				<ul class="languages-list">
-					<li>
-						<span>Certified Associate Project Manager (CAPM)</span>
-					</li>
-					<li>
-						<span>Eagle Scout</span>
-					</li>
-					<li>
-						<span>Oracle Certified Associate (Java 8)</span>
-					</li>
-				</ul>
 			</aside>
 		</div>
         
         <main class="main-content">
             <section class="work-experience">
                 <h3 class="section-title">Professional Experience</h3>
-
 				<div class="experience-item">
-                    <h4 class="job-title">Full Time Project Managment Co-Op</h4>
-                    <div class="company">Wegmans Food Markets</div>
-                    <div class="date">Jan 2025 - Aug 2025</div>
-                    <p class="bullet">• Supported cross-functional teams across multiple high-impact projects, collaborating with both Business and IT stakeholders. Responsibilities included leading meetings, managing key deliverables and timelines, as well as developing presentations and reports critical to project success.</p>
-					<p class="bullet">• Oversaw live IT system cutovers, participated in Program Increment (PI) planning events, and worked closely with change management and business analysis professionals to navigate complex, enterprise-wide process changes. </p>
-					<p class="bullet">• Gained fluency in industry-standard project and portfolio management tools such as Microsoft Project, Azure DevOps (ADO), Jira, and Microsoft Teams Planner. Also strengthened efficiency in widely used project management tools including the Microsoft Office Suite and Power Automate.</p>
-                </div>
-
-                <div class="experience-item">
-                    <h4 class="job-title">Full Time IT Project and Program Management Co-Op</h4>
-                    <div class="company">Bob's Discount Furniture</div>
-                    <div class="date">May 2023 - March 2024</div>
-                    <p>Collaborated with IT project management professionals to orchestrate cross-functional software development projects, employing agile and waterfall methodologies. Crafted comprehensive reports using PPSM tools and communicated with upper management to improve corporate vision.</p>
-                </div>
-                
-                <div class="experience-item">
-                    <h4 class="job-title">Software Development 2 Teaching Assistant</h4>
-                    <div class="company">Rochester Institute of Technology</div>
-                    <div class="date">January 2023 - December 2024</div>
-                    <p>Attended lectures and assisted students with in-class issues. Helped students understand course topics and graded assignments in Java and Python.</p>
-                </div>
+					<h4 class="job-title">Project Management Co-Op</h4>
+					<span><div class="company">Wegmans Food Markets</div></span>
+					<span style="display: flex; flex-direction: row; gap:5px;">
+						<div class="time-info">Full Time</div>
+						<div class="date">Jan 2025 - Aug 2025</div>
+					</span>
+					<ul class="bullet-list">
+						<li><strong>Supported cross-functional teams across multiple high-impact projects</strong>, collaborating with both Business and IT stakeholders. Responsibilities included <strong>leading meetings, managing key deliverables and timelines</strong>, as well as <strong>developing presentations and reports</strong> critical to project success.</li>
+						<li><strong>Oversaw live IT system cutovers</strong>, participated in <strong>Program Increment (PI) planning events</strong>, and worked closely with change management and business analysis professionals to navigate complex, enterprise-wide process changes.</li>
+						<li>Gained fluency in <strong>industry-standard project and portfolio management tools</strong> such as <strong>Microsoft Project, Azure DevOps (ADO), Jira, and Microsoft Teams Planner</strong>. Also strengthened efficiency in widely used project management tools including the <strong>Microsoft Office Suite and Power Automate</strong>.</li>
+					</ul>
+				</div>
+				
+				<div class="experience-item">
+					<h4 class="job-title">Full Time IT Project and Program Management Co-Op</h4>
+					<div class="company">Bob's Discount Furniture</div>
+					<span style="display: flex; flex-direction: row; gap:5px;">
+						<div class="time-info">Full Time</div>
+						<div class="date">May 2023 - March 2024</div>
+					</span>
+					<p><strong>Collaborated with IT project management professionals</strong> to orchestrate cross-functional software development projects, employing <strong>agile and waterfall methodologies</strong>. Crafted comprehensive reports using <strong>PPSM tools</strong> and communicated with upper management to improve corporate vision.</p>
+				</div>
+				
+				<div class="experience-item">
+					<h4 class="job-title">Software Development II Teaching Assistant (GCIS-124)</h4>
+					<div class="company">Rochester Institute of Technology</div>
+					<div class="date">January 2023 - December 2024</div>
+					<p><strong>Attended lectures and assisted students with in-class issues</strong>. Helped students understand course topics and <strong>graded assignments in Java and Python</strong>.</p>
+				</div>
             </section>
             
             <section class="personal-projects">
