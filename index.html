@@ -1,102 +1,632 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Jack Lindsey-Noble, ISTE-240, 2205 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLN Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+	<style>
+     * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Segoe UI', system-ui, sans-serif;
+		}
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Jack Lindsey-Noble</title>
-		<link rel="stylesheet" href="styles.css">
-	</head>
+		body {
+			background: linear-gradient(135deg, #eaecee 0%, #e5e9ec 100%);
+			color: #1e293b;
+			line-height: 1.6;
+			padding-left: 20px;
+			padding-right: 20px;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
 
-	<body>
-		<section id="home">
-			<div class="landing-page">
-				<div class="container">
-					<h1 class="typed">Jack Lindsey-Noble</h1>
+		.container {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			gap: 25px;
+			min-height: calc(100vh - 40px);
+		}
+
+		/* Header - More Playful */
+		header {
+			background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+			color: white;
+			padding: 25px;
+			border-radius: 0px 0px 16px 16px;
+			box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+			margin-bottom: 10px;
+			grid-column: 1 / -1;
+			position: relative;
+			overflow: hidden;
+		}
+
+		header::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -50%;
+			width: 100%;
+			height: 200%;
+			background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+			background-size: 20px 20px;
+			transform: rotate(15deg);
+		}
+
+		.header-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			position: relative;
+			z-index: 2;
+		}
+
+		.profile-info h1 {
+			font-size: 2.4rem;
+			margin-bottom: 5px;
+			font-weight: 700;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+		.profile-info h2 {
+			font-size: 1.3rem;
+			font-weight: 400;
+			margin-bottom: 10px;
+			opacity: 0.9;
+		}
+
+		.profile-info p {
+			opacity: 0.8;
+			max-width: 500px;
+		}
+
+		.contact-info {
+			display: flex;
+			align-items: end;
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		.contact-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(10px);
+			padding: 8px 16px;
+			border-radius: 12px;
+			font-size: 0.9rem;
+			transition: all 0.3s ease;
+		}
+
+		.contact-item:hover {
+			background: rgba(255, 255, 255, 0.3);
+			transform: translateY(-2px);
+		}
+
+		/* Sidebar - Playful but Clean */
+		.sidebar {
+			background: white;
+			padding: 25px;
+			border-radius: 16px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+			border: 1px solid #e2e8f0;
+		}
+
+		.profile-image {
+			width: 90%;
+			border-radius: 100%;
+			margin-bottom: 25px;
+			box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+			transition: all 0.3s ease;
+			border: 4px solid white;
+			margin-left: 5%;
+		}
+
+		.profile-image:hover {
+			transform: scale(1.02);
+			box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+		}
+
+		.education-item {
+			margin-bottom: 10px;
+		}
+
+		.section-title {
+			color: #6366f1;
+			font-size: 1.4rem;
+			margin-bottom: 20px;
+			padding-bottom: 10px;
+			border-bottom: 3px solid #e0e7ff;
+			position: relative;
+			font-weight: 600;
+		}
+
+		.section-title::after {
+			content: '';
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			width: 80px;
+			height: 3px;
+			background: #6366f1;
+			border-radius: 2px;
+		}
+
+		.skills-list {
+			list-style: none;
+			margin-bottom: 30px;
+		}
+
+		.skills-list li {
+			margin-bottom: 12px;
+			padding: 12px 16px;
+			background: #f8fafc;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			transition: all 0.3s ease;
+			border: 1px solid #f1f5f9;
+		}
+
+		.skills-list li:hover {
+			background: #e0e7ff;
+			transform: translateX(5px);
+			border-color: #c7d2fe;
+		}
+
+		.skill-icon {
+			color: #6366f1;
+			width: 20px;
+			text-align: center;
+			font-size: 1.1rem;
+		}
+
+		.languages-list {
+			list-style: none;
+		}
+
+		.languages-list li {
+			margin-bottom: 12px;
+			display: flex;
+			justify-content: space-between;
+			padding: 10px 0;
+			border-bottom: 1px solid #f1f5f9;
+			transition: all 0.3s ease;
+		}
+
+		.languages-list li:hover {
+			padding-left: 10px;
+			color: #6366f1;
+		}
+
+		/* Main Content */
+		.main-content {
+			padding: 0 5px;
+		}
+
+		.experience-item, .project-card {
+			margin-bottom: 20px;
+			padding: 24px;
+			background: white;
+			border-radius: 16px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+			transition: all 0.4s ease;
+			border: 1px solid #f1f5f9;
+		}
+
+		.experience-item:hover, .project-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+			border-color: #e0e7ff;
+		}
+
+		.job-title {
+			color: #1e293b;
+			font-size: 1.3rem;
+			font-weight: 600;
+			margin-bottom: 6px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.job-title::before {
+			content: '💼';
+			font-size: 1.1rem;
+		}
+
+		.company {
+			font-weight: 600;
+			margin-bottom: 5px;
+			color: #6366f1;
+			font-size: 1.1rem;
+		}
+
+		.date {
+			color: #64748b;
+			font-style: italic;
+			margin-bottom: 12px;
+			font-size: 0.9rem;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.date::before {
+			content: '📅';
+			font-style: normal;
+		}
+
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 20px;
+		}
+
+		.project-card {
+			padding: 24px;
+			position: relative;
+		}
+
+		.project-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 4px;
+			height: 100%;
+			background: linear-gradient(135deg, #6366f1, #8b5cf6);
+			border-radius: 16px 0 0 16px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.project-card:hover::before {
+			opacity: 1;
+		}
+
+		.project-title {
+			color: #1e293b;
+			font-size: 1.2rem;
+			margin-bottom: 12px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-weight: 600;
+		}
+
+		.project-links {
+			margin-top: 18px;
+			display: flex;
+			gap: 12px;
+		}
+
+		.btn {
+			padding: 8px 16px;
+			background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+			color: white;
+			text-decoration: none;
+			border-radius: 10px;
+			font-size: 0.9rem;
+			transition: all 0.3s ease;
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			font-weight: 500;
+			box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+		}
+
+		.btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+			background: linear-gradient(135deg, #5b5fef 0%, #7c4df6 100%);
+		}
+
+		.bullet {
+			margin-bottom: 10px;
+		}
+
+		/* Footer */
+		footer {
+			text-align: center;
+			padding: 20px;
+			margin-top: 30px;
+			color: #64748b;
+			grid-column: 1 / -1;
+			border-top: 1px solid #e2e8f0;
+			font-size: 0.9rem;
+		}
+
+		footer a {
+			color: #6366f1;
+			text-decoration: none;
+			font-weight: 500;
+			transition: all 0.3s ease;
+		}
+
+		footer a:hover {
+			color: #8b5cf6;
+			text-decoration: underline;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 968px) {
+			.container {
+				grid-template-columns: 1fr;
+				gap: 20px;
+			}
+			
+			.header-content {
+				flex-direction: column;
+				text-align: center;
+				gap: 20px;
+			}
+			
+			.contact-info {
+				justify-content: center;
+			}
+
+			.contact-row {
+				justify-content: center;
+			}
+			
+			.projects-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 640px) {
+			body {
+				padding: 15px;
+			}
+			
+			header {
+				padding: 20px;
+			}
+			
+			.profile-info h1 {
+				font-size: 2rem;
+			}
+			
+			.contact-info {
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.contact-item {
+				width: 100%;
+				justify-content: center;
+			}
+			
+			.sidebar, .experience-item, .project-card {
+				padding: 20px;
+			}
+			
+			.project-links {
+				flex-direction: column;
+			}
+			
+			.btn {
+				justify-content: center;
+			}
+		}
+
+		/* Animation for elements */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.fireworks {
+			position: fixed;
+			z-index: 100;
+			width:100%;
+			height:100%;
+		}
+
+		.experience-item, .project-card, .sidebar {
+			animation: fadeInUp 0.6s ease-out;
+		}
+
+		.experience-item:nth-child(2) { animation-delay: 0.1s; }
+		.experience-item:nth-child(3) { animation-delay: 0.2s; }
+		.project-card:nth-child(2) { animation-delay: 0.3s; }
+		.project-card:nth-child(3) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+	<!-- <canvas class="fireworks"></canvas> -->
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1>Jack Lindsey-Noble</h1>
+                    <h2>Software Engineering Student | Project Management</h2>
+                    <p>Fourth-year student at Rochester Institute of Technology seeking CO-OP or full-time positions in Software Engineering or Project Management.</p>
+                </div>
+                <div class="contact-info">
+					
+						<div class="contact-item">
+							<i class="fas fa-envelope"></i>
+							<span>jacknoble0303@gmail.com</span>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-phone"></i>
+							<span>(203)-349-0236</span>
+						</div>
+						<div class="contact-item">
+							<i class="fab fa-github"></i>
+							<span>github.com/hellokugelblitz</span>
+						</div>
+					
+                </div>
+            </div>
+        </header>
+
+		<div>
+
+			<img src="https://media.licdn.com/dms/image/v2/D4E03AQEix1sprSS5BA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689946374059?e=1761177600&v=beta&t=mjlGvwH-fz9M5SAcLUXCJ2bN-tJa320EsAEN4TQaW60" alt="Jack Lindsey-Noble" class="profile-image">	
+
+			<aside class="sidebar">
+				
+
+			
+				
+				<h3 class="section-title">Education</h3>
+				<div class="education-item">
+					<h4>Rochester Institute of Technology</h4>
+					<p>Bachelor of Science in Humanities, Computing, and Design</p>
+					<p>Minor in Software Engineering</p>
+					<p>Expected Spring 2025</p>
+					<p>Dean's List recipient</p>
 				</div>
-				<img src="me.png" alt="Girl in a jacket" width="500" height="600">
-				<div class="container">
-					<a href="#about-me">Projects & About me</a>
-				</div>
-			</div>
-		</section>
+				
+				<h3 class="section-title">Skills</h3>
+				<ul class="skills-list">
+					<li>
+						<i class="fab fa-java skill-icon"></i>
+						<span>Java / JavaScript / TypeScript</span>
+					</li>
+					<li>
+						<i class="fab fa-python skill-icon"></i>
+						<span>Python / C#</span>
+					</li>
+					<li>
+						<i class="fab fa-react skill-icon"></i>
+						<span>React / Angular / Svelte</span>
+					</li>
+					<li>
+						<i class="fas fa-code skill-icon"></i>
+						<span>Node.js / Next.js</span>
+					</li>
+					<li>
+						<i class="fas fa-database skill-icon"></i>
+						<span>AWS / Firebase / MongoDB</span>
+					</li>
+					<li>
+						<i class="fas fa-tasks skill-icon"></i>
+						<span>Agile / Scrum / Waterfall</span>
+					</li>
+				</ul>
+				
+				<h3 class="section-title">Awards</h3>
+				<ul class="languages-list">
+					<li>
+						<span>Eagle Scout</span>
+						<span>Top 6% of Scouts</span>
+					</li>
+					<li>
+						<span>Oracle Certified Associate (Java 8)</span>
+						<span>Professional Certification</span>
+					</li>
+				</ul>
+			</aside>
+		</div>
+        
+        <main class="main-content">
+            <section class="work-experience">
+                <h3 class="section-title">Professional Experience</h3>
+
+				<div class="experience-item">
+                    <h4 class="job-title">Full Time Project Managment Co-Op</h4>
+                    <div class="company">Wegmans Food Markets</div>
+                    <div class="date">Jan 2025 - Aug 2025</div>
+                    <p class="bullet">• Supported cross-functional teams across multiple high-impact projects, collaborating with both Business and IT stakeholders. Responsibilities included leading meetings, managing key deliverables and timelines, as well as developing presentations and reports critical to project success.</p>
+					<p class="bullet">• Oversaw live IT system cutovers, participated in Program Increment (PI) planning events, and worked closely with change management and business analysis professionals to navigate complex, enterprise-wide process changes. </p>
+					<p class="bullet">• Gained fluency in industry-standard project and portfolio management tools such as Microsoft Project, Azure DevOps (ADO), Jira, and Microsoft Teams Planner. Also strengthened efficiency in widely used project management tools including the Microsoft Office Suite and Power Automate.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h4 class="job-title">Full Time IT Project and Program Management Co-Op</h4>
+                    <div class="company">Bob's Discount Furniture</div>
+                    <div class="date">May 2023 - March 2024</div>
+                    <p>Collaborated with IT project management professionals to orchestrate cross-functional software development projects, employing agile and waterfall methodologies. Crafted comprehensive reports using PPSM tools and communicated with upper management to improve corporate vision.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h4 class="job-title">Software Development 2 Teaching Assistant</h4>
+                    <div class="company">Rochester Institute of Technology</div>
+                    <div class="date">January 2023 - December 2024</div>
+                    <p>Attended lectures and assisted students with in-class issues. Helped students understand course topics and graded assignments in Java and Python.</p>
+                </div>
+            </section>
+            
+            <section class="personal-projects">
+                <h3 class="section-title">Projects</h3>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4 class="project-title"><i class="fas fa-robot"></i> AI Jumbles</h4>
+                        <p>Full stack project that uses AI to reinvent the classic game of Madlibs. Built with AWS, React, and Flask.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 class="project-title"><i class="fas fa-apple-alt"></i> NutriApp</h4>
+                        <p>Full stack project heavily utilizing GoF design patterns, with a C# backend and a Svelte front end designed and implemented by me.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 class="project-title"><i class="fas fa-project-diagram"></i> Dijkstra's Visualized</h4>
+                        <p>Interactive JS visualization of Dijkstra's shortest path algorithm with UI features.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 class="project-title"><i class="fas fa-money-bill-wave"></i> Wampum Pay</h4>
+                        <p>Fully deployed "IOU" app written with React-Native and Firebase database.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Jack Lindsey-Noble. All rights reserved. | <a href="#">Download PDF Version</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple interactivity - Add hover effects to skills
+        document.addEventListener('DOMContentLoaded', function() {
+            const skills = document.querySelectorAll('.skills-list li');
+            
+            skills.forEach(skill => {
+                skill.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                });
+                
+                skill.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    </script>
+	<script src="./js/ripple.js"></script>
 	
-		<section id="about-me">
-				<div class="about">
-
-					<h1>I'm a</h1>
-					<h1 id="result"></h1>
-					<h1>year old developer.</h1>
-					
-
-					<script>
-						function updateResult() {
-							// Define the specific date
-							const specificDate = new Date("2003-03-07");
-
-							// Calculate the difference between the specific date and the current date in milliseconds
-							const timeDiff = Date.now() - specificDate.getTime();
-
-							// Convert the time difference from milliseconds to years with 8 decimal places
-							const years = parseFloat((timeDiff / (1000 * 60 * 60 * 24 * 365)).toFixed(9));
-
-							// Display the result in the HTML element with ID "result"
-							document.getElementById("result").innerHTML = years;
-						}
-
-						// Update the result every second
-						setInterval(updateResult, 1);
-					</script>
-
-					<!-- <div class="title">
-						<h1>Welcome!</h1>
-						<hr>
-					</div> -->
-
-					<!-- <div class="text">
-					<p>Hello! My name is Jack Lindsey-Noble, so happy you've found your way to my portfolio website
-						I am currently majoring in Computing, Humanities, and Design at Rochester Institute of 
-						Technology but I am originally from the great state of Connecticut. As I look forward to 
-						beginning my career, I am mostly interested in project management, front end development, 
-						and working on multimedia projects. I am very passionate as well about my hobbies! In my 
-						free time I love to write screenplays, poetry, and short stories, and work on little games
-						in python or C# (Unity).</p>
-
-						<h3 style="color:rgb(167, 1, 1); margin-bottom: 15px;">My Projects:</h3>
-
-					</div> -->
-<!-- 
-					<div class="image">
-						<img src="me2.jpg" alt="Me in pitsburgh">
-					</div>
-					
-					<div class="badges">
-						<a href="https://github.com/hellokugelblitz"><img src="g_badge.png" alt="Github link" ></a>
-						<a href="https://www.linkedin.com/in/jack-lindsey-noble-55a032254/"><img src="l_badge.png" alt="Linkedn link"></a>
-						<p>[jgl2651@rit.edu or jacknoble0303@gmail.com]</p>
-					</div>
-					
-					<div class="projects">
-						<ul>
-							<li><a href="#">Exercise 1</a></li>
-							<li><a href="#">Exercise 2</a></li>
-							<li><a href="#">Exercise 3</a></li>
-							<li><a href="#">Exercise 4</a></li>
-							<li><a href="#">Exercise 5</a></li>
-							<li><a href="#">Exercise 6</a></li>
-							<li><a href="#">Exercise 7</a></li>
-							<li><a href="#">Individual Project 1</a></li>
-							<li><a href="#">Individual Project 2</a></li>
-							<li><a href="#">Group Project</a></li>
-						</ul>
-					</div>
-					
-					<div class="title">
-						<hr>
-					</div> -->
-				</div>
-		</section>
-		
-	</body>
+</body>
 </html>

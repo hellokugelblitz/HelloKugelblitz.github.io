@@ -1,0 +1,22 @@
+{
+  "name": "hellokugelblitz.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellokugelblitz/HelloKugelblitz.github.io.git"
+  },
+  "author": "Jack LN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellokugelblitz/HelloKugelblitz.github.io/issues"
+  },
+  "homepage": "https://github.com/hellokugelblitz/HelloKugelblitz.github.io#readme",
+  "dependencies": {
+    "animejs": "^4.1.4"
+  }
+}
