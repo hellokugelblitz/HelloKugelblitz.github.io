@@ -213,6 +213,7 @@
 		}
 
 		.experience-item, .project-card {
+			position: relative;
 			margin-bottom: 20px;
 			padding: 24px;
 			background: white;
@@ -224,12 +225,20 @@
 
 		.company-logo-bg {
 			position: absolute;
-			top: 15px;
-			right: 15px;
+			top: 25px;
+			right: 25px;
 			height: 70px;
-			opacity: 0.08;
+			opacity: 0.3;
 			z-index: 0;
-			pointer-events: none;
+		}
+
+		.company-logo-bg-two {
+			position: absolute;
+			top: 30px;
+			right: 25px;
+			height: 25px;
+			opacity: 0.3;
+			z-index: 0;
 		}
 
 		.experience-item:hover, .project-card:hover {
@@ -276,13 +285,13 @@
 		}
 
 		.bullet-list {
-			margin: 10px 0;
-			margin-top: 0px;
+			margin-right: 15px;
+			margin-top: 5px;
 			padding-left: 20px;
 		}
 
 		.bullet-list li {
-			margin-bottom: 8px;
+			margin-bottom: 12px;
 			line-height: 1.5;
 			position: relative;
 		}
@@ -628,7 +637,8 @@
 				<div class="experience-item">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/WegmansLogo.svg/504px-WegmansLogo.svg.png?20130624212803" 
 					alt="Wegmans Logo" 
-					class="company-logo-bg">					<h4 class="job-title">Project Management Co-Op</h4>
+					class="company-logo-bg">					
+					<h4 class="job-title">Project Management Co-Op</h4>
 					<span><div class="company">Wegmans Food Markets</div></span>
 					<span style="display: flex; flex-direction: row; gap:5px;">
 						<div class="time-info">Full Time</div>
@@ -642,6 +652,12 @@
 				</div>
 				
 				<div class="experience-item">
+					<img src="https://shopcrossroadstc.com/wp-content/uploads/sites/4/2019/06/Bob_logo.png" 
+					alt="Bobs Logo" 
+					class="company-logo-bg-two"
+					width="200px"
+					height="50px">	
+					<!-- https://shopcrossroadstc.com/wp-content/uploads/sites/4/2019/06/Bob_logo.png -->
 					<h4 class="job-title">Full Time IT Project and Program Management Co-Op</h4>
 					<div class="company">Bob's Discount Furniture</div>
 					<span style="display: flex; flex-direction: row; gap:5px;">
@@ -652,6 +668,10 @@
 				</div>
 				
 				<div class="experience-item">
+					<img src="https://www.rit.edu/brandportal/sites/rit.edu.brandportal/files/inline-images/new_RIT_logo1_RGB_0.png" 
+					alt="RIT Logo" 
+					class="company-logo-bg-two"
+					width="160px">	
 					<h4 class="job-title">Software Development II Teaching Assistant (GCIS-124)</h4>
 					<div class="company">Rochester Institute of Technology</div>
 					<div class="date">January 2023 - December 2024</div>
